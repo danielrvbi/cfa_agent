@@ -1,0 +1,8 @@
+cfa_epub/
+cfa_pfs/
+cfa_vector.index
+cfa_text_dump.txt
+cfa_agent_memory.db-wal
+cfa_agent_memory.db-shm
+cfa2025.json
+.ipynb_checkpoints/
