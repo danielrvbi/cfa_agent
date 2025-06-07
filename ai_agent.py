@@ -6,6 +6,7 @@ from typing import Any, Dict, List, Optional, Union, TypedDict, Annotated
 
 # === Data Handling ===
 import pandas as pd
+import re
 
 # === NLP Models ===
 from sentence_transformers import SentenceTransformer, util
@@ -43,8 +44,8 @@ flat_book = [f"{book} -> {chapter} -> {book_json[book][chapter] }" for book, cha
 
 def find_relevant_sections(
     query: str,
-    top_k: int = 5,
-    score_threshold1: float = 0.5,
+    top_k: int = 8,
+    score_threshold1: float = 0.7,
     score_threshold2: float = 0.3,
     model_name: str = 'all-MiniLM-L6-v2',
     return_content: bool = False
@@ -116,6 +117,7 @@ class LocalLLM:
         )
         return response["message"]["content"].split("</think>")[-1].strip()
 
+
 llm = LocalLLM()
 
 
@@ -130,6 +132,7 @@ class GraphState(TypedDict):
     messages: Annotated[List[Dict[str, str]], add_messages]
     goto: Optional[str]          # Used by the confirm node to drive conditional edges
     context: str
+    RAG_memory: Dict[str, str]
 
 
 # -------------------------------------------------------------------------
@@ -150,72 +153,92 @@ def user_query_node(state: GraphState) -> GraphState:
 def retrieval_node(state: GraphState) -> GraphState:
     query = state["query"]
     # find_relevant_sections(query) returns List[str]
-    section_list = find_relevant_sections(query)
+    section_list = sorted(find_relevant_sections(query))
 
+    list_text = '\n'.join(section_list)
     
     return {
-        "messages": [SystemMessage(content=section_list)],
+        "messages": [SystemMessage(
+            content=(
+                "Retrieved data:\n"
+                f"{list_text}"
+            )
+        )],
         "retrieved_sections": section_list
     }
 
-
 # -------------------------------------------------------------------------
-# 4. Confirm node using interrupt()
+# 4. Confirm node (with LLM-assisted heuristic)
 # -------------------------------------------------------------------------
 
-def confirm_node(state: GraphState) -> Dict[str, Any]:
-    sections = state["retrieved_sections"]
+def confirm_node(state: GraphState):
+    sections = state.get("retrieved_sections",[])
+    query = state["query"]
 
-    # 1) Exactly one → skip confirmation
-    if len(sections) == 1:
-        return {
-            "messages": [
-                SystemMessage(content=f"Only one section found: {sections[0]}. Skipping confirmation.")
-            ],
-            "retrieved_sections": sections,
-            "goto": "full_retrieval"
-        }
-
-    # 2) None → ask user to rephrase query
+    # 1) No sections → ask user to rephrase query
     if not sections:
-        new_q = interrupt({
-            "prompt": "I couldn't find any sections matching your question. Please rephrase or clarify your query."
-        })
+        new_q = interrupt({"prompt": "No matches found—please rephrase your question."})
         return {
-            "messages": [SystemMessage(content=f"User provided new query: {new_q}")],
+            "messages": [HumanMessage(content=f"New query: {new_q}")],
             "query": new_q,
             "goto": "retrieve"
         }
 
-    # 3) Multiple → present numbered options
-    opts = "\n".join(f"{i+1}. {sec}" for i, sec in enumerate(sections))
-    choice = interrupt({
-        "prompt": (
-            "I found multiple relevant sections. Please select one by number:\n\n"
-            f"{opts}\n\nReply with 1, 2, 3, etc."
-        )
-    })
-
-    # validate
-    try:
-        idx = int(choice.strip()) - 1
-        if idx < 0 or idx >= len(sections):
-            raise ValueError()
-    except ValueError:
+    # 2) Exactly one → skip confirmation
+    if len(sections) == 1:
         return {
-            "messages": [SystemMessage(content=f"Invalid choice '{choice}'. Let me try again.")],
-            "goto": "confirm"
+            "messages": [SystemMessage(
+                content=f"Only one section found: {sections[0]}. Proceeding to retrieval.")],
+            "retrieved_sections": sections,
+            "goto": "full_retrieval"
         }
 
-    # valid selection
-    picked = sections[idx]
-    return {
-        "messages": [
-            SystemMessage(content=f"User selected option {idx+1}: {picked}")
-        ],
-        "retrieved_sections": [picked],
-        "goto": "full_retrieval"
-    }
+    # 3) Multiple → ask LLM for top picks or fallback to user
+    list_text = "\n".join(f"{i+1}. {sec}" for i, sec in enumerate(sections))
+    
+    llm_prompt = (
+        f"The user asked the following question:\n"
+        f"'{query}'\n\n"
+        "Below is a numbered list of CFA curriculum sections.\n"
+        "Your task is to select ONLY the numbers of the sections that are directly and precisely relevant to the question.\n\n"
+        "VERY IMPORTANT:\n"
+        "- ONLY use section numbers from the list below.\n"
+        "- Do NOT make up new sections or topics.\n"
+        "- If none of the sections are clearly relevant, reply only with: 'uncertain'.\n"
+        "- Your answer must be a comma-separated list of the section numbers only (e.g., '1, 3, 5')\n\n"
+        f"Sections:\n{list_text}"
+    )
+    
+    llm_resp = llm.invoke(llm_prompt).strip().lower()
+    # Extract any numbers LLM returned
+    llm_indices = [int(i)-1 for i in re.findall(r"\d+", llm_resp)]
+    valid = [i for i in llm_indices if 0 <= i < len(sections)]
+    if valid:
+        picked = [sections[i] for i in sorted(set(valid))]
+
+        picke_print = "\n".join(picked)
+        return {
+            "messages": [SystemMessage(content=f"LLM selected sections: {picke_print}")],
+            "retrieved_sections": picked,
+            "goto": "full_retrieval"
+        }
+
+    # 4) Fallback → ask user to pick one or more
+    choice = interrupt({
+        "prompt": (
+            "Select one or more sections by number (comma-separated), e.g. '1,3':\n"
+            f"{list_text}"
+        ),
+        "sections": sections
+    })
+    user_idxs = [int(i)-1 for i in re.findall(r"\d+", choice)]
+    chosen = [sections[i] for i in sorted({i for i in user_idxs if 0 <= i < len(sections)})]
+    if not chosen:
+        # invalid choice → retry confirm
+        return {
+            "messages": [SystemMessage(content=f"Invalid selection '{choice}'. Please try again.")],
+            "goto": "confirm"
+        }
 
 # -------------------------------------------------------------------------
 # 5. Full retrieval node (unchanged)
@@ -233,7 +256,6 @@ def full_retrieval_node(state: GraphState) -> GraphState:
     
     return {
         "context": concatenated,
-        "messages": [SystemMessage(content="Fetched full text for all candidate sections.")]
     }
 
 
@@ -241,24 +263,43 @@ def full_retrieval_node(state: GraphState) -> GraphState:
 # 6. Response node (unchanged)
 # -------------------------------------------------------------------------
 def response_node(state: GraphState) -> GraphState:
-    context_text = state["context"]  # Now a big string
+    context_text = state["context"]
     query = state["query"]
+    RAG_memory = state.get("RAG_memory", {})
+
+    # Only include memory section if not empty
+    if RAG_memory:
+        memory_entries = "\n".join(
+            f"- Q: {q}\n  A Context: {ctx}" for q, ctx in RAG_memory.items()
+        )
+        memory_section = (
+            "Previously referenced context from past questions:\n"
+            f"{memory_entries}\n\n"
+        )
+    else:
+        memory_section = ""
+
+    # Construct full prompt
     prompt = (
+        f"{memory_section}"
         "Below are the relevant CFA curriculum sections:\n\n"
         f"{context_text}\n\n"
         f"Question: {query}\n\n"
         "Please answer in a concise, yet complete manner, citing the relevant sections as needed."
     )
+
     llm_answer = llm.invoke(prompt)
     ai_message = AIMessage(content=llm_answer)
-
     ai_message.pretty_print()
 
     return {
         "response": llm_answer,
-        "messages": [ai_message]
+        "messages": [ai_message],
+        "RAG_memory": {
+            **RAG_memory,
+            **{query: context_text}
+        }
     }
-
 
 # -------------------------------------------------------------------------
 # 7. Build and compile the graph with MemorySaver checkpointer
@@ -344,8 +385,8 @@ def interactive_query(user_query: str):
         for node_out in chunk.values():
             # If the response node has fired, it will set "response"
             if "response" in node_out and node_out["response"] is not None:
-                print("\n📄 Final Answer:")
-                print(node_out["response"])
+                #print("\n📄 Final Answer:")
+                #print(node_out["response"])
                 return
             # Otherwise, if a node emitted messages, show them
             if "messages" in node_out and node_out["messages"]:
