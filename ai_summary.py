@@ -2,7 +2,8 @@ import json
 import os
 import sys
 import re
-from typing import List, Union, Dict
+import logging
+from typing import List
 
 # === RAG Retrieval Dependencies ===
 from sentence_transformers import SentenceTransformer, util
@@ -19,10 +20,21 @@ TOP_K = 5
 SCORE_THRESHOLD1 = 0.7
 SCORE_THRESHOLD2 = 0.3
 BOOK_JSON_PATH = "cfa2025.json"
+OUTPUT_DIR = "cfa_summaries"
+
+# -------------------------------------------------------------------------
+# Setup logging
+# -------------------------------------------------------------------------
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
 
 # -------------------------------------------------------------------------
 # Load book data
 # -------------------------------------------------------------------------
+logging.info("Loading book data from %s", BOOK_JSON_PATH)
 with open(BOOK_JSON_PATH, "r") as f:
     book_json = json.load(f)
 
@@ -112,28 +124,45 @@ def summarize_chapter(title: str, content: str, llm: LocalLLM) -> str:
 def main():
     # 1) Get user query
     query = input("Enter your query: ")
+    logging.info("Retrieving relevant chapters for query: '%s'", query)
 
     # 2) Retrieve relevant chapters
     sections = find_relevant_sections(query)
     if not sections:
+        logging.warning("No relevant chapters found for query: '%s'", query)
         print("No relevant chapters found. Please try rephrasing your query.")
         sys.exit(1)
 
-    # 3) Summarize each chapter
+    # 3) Confirm sections
+    logging.info("Found %d sections to summarize:", len(sections))
+    for sec in sections:
+        logging.info(" - %s", sec)
+    confirm = input("Proceed with summarizing these sections? (y/n): ").strip().lower()
+    if confirm not in ("y", "yes"):
+        logging.info("Operation cancelled by user.")
+        sys.exit(0)
+
+    # 4) Ensure output directory exists
+    output_dir = os.path.join(os.getcwd(), OUTPUT_DIR)
+    os.makedirs(output_dir, exist_ok=True)
+    out_path = os.path.join(output_dir, "summary.md")
+
+    # 5) Summarize each chapter
     llm = LocalLLM()
     summaries: List[str] = []
     for sec in sections:
+        logging.info("Summarizing section: %s", sec)
         book, chap = sec.split(" -> ", 1)
         text = book_json[book][chap]
         summary_md = summarize_chapter(sec, text, llm)
         summaries.append(f"## {sec}\n\n{summary_md}\n")
 
-    # 4) Combine and save to markdown file
+    # 6) Combine and save to markdown file
     output = "\n".join(summaries)
-    out_path = os.path.join(os.getcwd(), "summary.md")
     with open(out_path, "w") as f:
         f.write(output)
 
+    logging.info("Markdown summary created: %s", out_path)
     print(f"Markdown summary created: {out_path}")
 
 if __name__ == "__main__":
