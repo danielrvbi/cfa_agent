@@ -38,6 +38,7 @@ model = AutoModel.from_pretrained(path)
 
 with open("cfa2025.json", "r") as file:
     book_json = eval(file.read())
+    
 flat_sections = [f"{book} -> {chapter}" for book, chapters in book_json.items() for chapter in chapters]
 
 flat_book = [f"{book} -> {chapter} -> {book_json[book][chapter] }" for book, chapters in book_json.items() for chapter in chapters]
@@ -50,10 +51,7 @@ def find_relevant_sections(
     model_name: str = 'all-MiniLM-L6-v2',
     return_content: bool = False
 ) -> Union[List[str], Dict[str, str]]:
-    """
-    If return_content=False: return top_k section titles (e.g. ["Genesis -> 1", ...]).
-    If return_content=True: return a dict mapping each section title to its full text.
-    """
+
     model = SentenceTransformer(model_name, device='mps')
     query_emb = model.encode(query, convert_to_tensor=True)
 
@@ -105,7 +103,13 @@ class LocalLLM:
         self.temperature = temperature
 
     def invoke(self, prompt: str) -> str:
-        messages = [{"role": "user", "content": prompt}]
+        messages = [{
+            "role": "user",
+            "content": prompt+(
+                "\nWhen you answer, do NOT use any Markdown formatting. "
+                "Output plain text only—no asterisks, backticks, or hash symbols.\n"
+            )
+        }]
         response = ollama.chat(
             model=self.model,
             messages=messages,
