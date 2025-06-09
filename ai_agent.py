@@ -36,58 +36,73 @@ path = "/Users/danielrubibreton/Desktop/PythonStuff/hface/all-MiniLM-L6-v2"
 tokenizer = AutoTokenizer.from_pretrained(path)
 model = AutoModel.from_pretrained(path)
 
-with open("cfa2025.json", "r") as file:
-    book_json = eval(file.read())
-    
-flat_sections = [f"{book} -> {chapter}" for book, chapters in book_json.items() for chapter in chapters]
+from cfa_parsinv_v3 import *
 
-flat_book = [f"{book} -> {chapter} -> {book_json[book][chapter] }" for book, chapters in book_json.items() for chapter in chapters]
+def get_node_by_path(root: BookNode, path: str) -> BookNode:
+    node = root
+    for part in path.split(" -> "):
+        node = node[part]
+    return node
+
+
+flat_sections = cfa_book.flatten_paths(levels=(3, 4))
+
+# get_node_by_path(cfa_book,res[0]).content
+
 
 def find_relevant_sections(
     query: str,
-    top_k: int = 8,
-    score_threshold1: float = 0.7,
+    tree: BookNode,
+    top_k: int = 10,
+    score_threshold1: float = 0.6,
     score_threshold2: float = 0.3,
     model_name: str = 'all-MiniLM-L6-v2',
     return_content: bool = False
 ) -> Union[List[str], Dict[str, str]]:
+    """
+    Searches level-3 & level-4 headings by semantic similarity,
+    falling back to level-2 (modules) if nothing passes threshold1.
 
+    If return_content=False: returns list of paths.
+    If return_content=True: returns dict { path: full_text }.
+    """
+    # 0) prepare flattened paths
+    flat_sec = tree.flatten_paths(levels=(3,4))
+    flat_mod = tree.flatten_paths(levels=(2,))
+
+    # 1) encode
     model = SentenceTransformer(model_name, device='mps')
-    query_emb = model.encode(query, convert_to_tensor=True)
+    q_emb = model.encode(query, convert_to_tensor=True)
+    sec_embs = model.encode(flat_sec, convert_to_tensor=True)
 
-    # 1) Title‐level matching
-    sec_embs = model.encode(flat_sections, convert_to_tensor=True)
-    scores = util.cos_sim(query_emb, sec_embs)[0]
+    # 2) chapter/subchapter matching
+    scores = util.cos_sim(q_emb, sec_embs)[0]
     hits = sorted(
-        [(i, s.item()) for i, s in enumerate(scores) if s.item() >= score_threshold1],
+        [(i, float(s)) for i, s in enumerate(scores) if float(s) >= score_threshold1],
         key=lambda x: x[1], reverse=True
     )[:top_k]
 
-    if not hits:
-        # 2) Fallback: book‐level matching
-        book_embs = model.encode(flat_book, convert_to_tensor=True)
-        scores = util.cos_sim(query_emb, book_embs)[0]
+    if hits:
+        section_keys = [ flat_sec[i] for i, _ in hits ]
+    else:
+        # fallback to module‐level
+        mod_embs = model.encode(flat_mod, convert_to_tensor=True)
+        scores = util.cos_sim(q_emb, mod_embs)[0]
         hits = sorted(
-            [(i, s.item()) for i, s in enumerate(scores) if s.item() >= score_threshold2],
+            [(i, float(s)) for i, s in enumerate(scores) if float(s) >= score_threshold2],
             key=lambda x: x[1], reverse=True
         )[: top_k + 2]
-        # normalize to just "Book -> Chapter"
-        section_keys = []
-        for idx, _ in hits:
-            book, chap, _ = flat_book[idx].split(" -> ", 2)
-            section_keys.append(f"{book} -> {chap}")
-    else:
-        section_keys = [flat_sections[i] for i, _ in hits]
+        section_keys = [ flat_mod[i] for i, _ in hits ]
 
     if not return_content:
         return section_keys
 
-    # if return_content=True, build the full dict
+    # build path->content map
     return {
-        sec: book_json[sec.split(" -> ", 1)[0]][sec.split(" -> ", 1)[1]]
-        for sec in section_keys
+        path: get_node_by_path(tree, path).content
+        for path in section_keys
     }
-    
+
 
 # -------------------------------------------------------------------------
 # 1. LocalLLM
@@ -157,7 +172,7 @@ def user_query_node(state: GraphState) -> GraphState:
 def retrieval_node(state: GraphState) -> GraphState:
     query = state["query"]
     # find_relevant_sections(query) returns List[str]
-    section_list = sorted(find_relevant_sections(query))
+    section_list = sorted(find_relevant_sections(query, cfa_book))
 
     list_text = '\n'.join(section_list)
     
@@ -222,7 +237,7 @@ def confirm_node(state: GraphState):
 
         picke_print = "\n".join(picked)
         return {
-            "messages": [SystemMessage(content=f"LLM selected sections: {picke_print}")],
+            "messages": [SystemMessage(content=f"LLM selected sections:\n{picke_print}")],
             "retrieved_sections": picked,
             "goto": "full_retrieval"
         }
@@ -251,8 +266,7 @@ def full_retrieval_node(state: GraphState) -> GraphState:
     section_list = state["retrieved_sections"]  # This is still List[str]
     all_text = []
     for sec in section_list:
-        book, chap = sec.split(" -> ", 1)
-        text = book_json[book][chap]
+        text = get_node_by_path(cfa_book,sec).content
         all_text.append(f"Book & Chapter: {sec}\n{text}")
         
     concatenated = "\n".join(all_text)

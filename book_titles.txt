@@ -1,0 +1,876 @@
+CFA
+
+
+Book 1: Quantitative Methods
+
+Learning Module 1: Rates and Returns
+* Introduction
+* Interest Rates and Time Value of Money
+* Determinants of Interest Rates
+* Rates of Return
+    * Holding Period Return
+    * Arithmetic (Mean) Return
+    * Geometric Mean Return
+    * Harmonic Mean
+* Money-Weighted and Time-Weighted Return
+    * Calculating Money-Weighted Return
+* Annualized and Non-Annualized Returns
+    * Non-Annual Compounding
+    * Annualizing Returns
+    * Continuously Compounded Returns
+* Other Major Return Measures
+    * Gross and Net Return
+    * Pre-Tax and After-Tax Nominal Return
+    * Real Returns
+    * Leveraged Return
+* Practice Problems & Solutions
+
+
+Learning Module 2: Time Value of Money in Finance
+* Introduction
+* Application in Fixed Income and Equity
+* Implied Return and Growth
+* Cash Flow Additivity and Applications
+    * Implied Forward Rates
+    * Forward Exchange Rates
+    * Option Pricing
+* Practice Problems & Solutions
+
+
+Learning Module 3: Statistical Measures of Asset Returns
+* Measures of Central Tendency and Dispersion
+    * Outliers
+    * Range, Variance, and Standard Deviation
+    * Downside Deviation, Coefficient of Variation
+* Measures of Distribution Shape
+* Correlation and Covariance
+* Practice Problems & Solutions
+
+Learning Module 4: Probability Trees and Conditional Expectations
+* Expected Value and Variance
+* Probability Trees and the Total Probability Rule
+* Bayes' Formula and Updating Probability Estimates
+* Practice Problems & Solutions
+
+Learning Module 5: Portfolio Mathematics
+* Portfolio Expected Return and Variance
+* Covariance and Correlation in Portfolio Context
+* Portfolio Risk Measures
+* Normal Distribution in Risk Analysis
+* Practice Problems & Solutions
+
+Learning Module 6: Simulation Methods
+* Lognormal Distribution and Continuous Compounding
+* Monte Carlo Simulation
+* Bootstrapping
+* Practice Problems & Solutions
+
+Learning Module 7: Estimation and Inference
+* Sampling Methods
+* Central Limit Theorem
+* Standard Error and Bootstrapping
+* Practice Problems & Solutions
+
+Learning Module 8: Hypothesis Testing
+* Tests of Return and Risk
+* Parametric vs. Non-Parametric Tests
+* Practice Problems & Solutions
+
+Learning Module 9: Parametric and Non-Parametric Tests of Independence
+* Tests Concerning Correlation
+* Contingency Table Analysis
+* Practice Problems & Solutions
+
+Learning Module 10: Simple Linear Regression
+* Assumptions and Estimation
+* Hypothesis Testing and ANOVA
+* Prediction in Simple Linear Regression
+* Different Functional Forms (Log-Lin, Lin-Log, Log-Log)
+* Practice Problems & Solutions
+
+Learning Module 11: Introduction to Big Data Techniques
+* Applications of FinTech in Investment Analysis
+* Machine Learning & AI in Finance
+* Data Processing and Visualization
+* Natural Language Processing (NLP)
+* Practice Problems & Solutions
+
+
+Book 2: Economics
+Learning Module 1: The Firm and Market Structures
+* Profit Maximization and Cost Analysis
+* Introduction to Market Structures
+    * Monopolistic Competition
+    * Oligopoly (Cournot & Nash Equilibrium)
+    * Determining Market Structure
+* Practice Problems & Solutions
+
+Learning Module 2: Understanding Business Cycles
+* Phases of the Business Cycle
+* Economic Indicators and Their Applications
+* Market Conditions and Investor Behavior
+* Practice Problems & Solutions
+
+Learning Module 3: Introduction to Monetary and Fiscal Policy
+* Fiscal Policy Tools and Multipliers
+* Monetary Policy and Central Banks
+* Monetary Policy Objectives and Transmission Mechanisms
+* Interaction of Monetary & Fiscal Policy
+* Practice Problems & Solutions
+
+Learning Module 4: Introduction to Geopolitics
+* Political Cooperation and Globalization
+* International Trade Organizations (IMF, WTO)
+* Geopolitical Risk and Investment Strategy
+* Practice Problems & Solutions
+
+Learning Module 5: International Trade
+* Benefits and Costs of Trade
+* Trade Restrictions (Tariffs, Quotas, Subsidies)
+* Trading Blocs and Regional Integration
+* Practice Problems & Solutions
+
+Learning Module 6: Capital Flows and the Foreign Exchange Market
+* FX Market Participants and Exchange Rate Regimes
+* Capital Restrictions and Trade Balance Implications
+* Practice Problems & Solutions
+
+Learning Module 7: Exchange Rate Calculations
+* Cross-Rate and Forward Rate Calculations
+* Arbitrage and Forward Premiums
+* Practice Problems & Solutions
+
+
+
+Book 3: Corporate Issuers
+
+Learning Module 1: Organizational Forms and Corporate Features
+* Business Structures (Sole Proprietorship, Partnerships, Limited Companies)
+* Public vs. Private Corporations
+* Corporate Financing and Governance
+* Practice Problems & Solutions
+
+Learning Module 2: Investors and Other Stakeholders
+* Debt vs. Equity Considerations
+* Corporate Governance and ESG Factors
+* Practice Problems & Solutions
+
+Learning Module 3: Corporate Governance and Risk Management
+* Shareholder and Board Relations
+* Governance Mechanisms and Reporting Transparency
+* Risks and Benefits of Different Governance Structures
+* Practice Problems & Solutions
+
+Learning Module 4: Working Capital and Liquidity Management
+* Cash Conversion Cycle
+* Liquidity Sources and Management
+* Working Capital Optimization
+* Practice Problems & Solutions
+
+Learning Module 5: Capital Investments and Allocation
+* Capital Allocation Methods (NPV, IRR)
+* Real Options and Investment Decision-Making
+* Practice Problems & Solutions
+
+Learning Module 6: Capital Structure Decisions
+* Cost of Capital and Financing Choices
+* Modigliani-Miller Propositions
+* Optimal Capital Structure and WACC
+* Practice Problems & Solutions
+
+Learning Module 7: Business Models and Innovation
+* Business Model Design and Features
+* Pricing, Revenue Models, and Market Positioning
+* Network Effects and Platform Business Strategies
+* Practice Problems & Solutions
+
+
+
+Book 4: Financial Statement Analysis
+
+Learning Module 1: Introduction to Financial Statement Analysis
+* Introduction
+* Financial Statement Analysis Framework
+    * Purpose and Context of Analysis
+    * Data Collection and Processing
+    * Data Interpretation and Communication
+    * Follow-Up in Financial Analysis
+* Scope of Financial Statement Analysis
+* Regulated Sources of Information
+    * International Organization of Securities Commissions (IOSCO)
+    * US Securities and Exchange Commission (SEC)
+    * Capital Markets Regulation in Europe
+* Financial Notes and Supplementary Schedules
+    * Business & Geographic Segment Reporting
+    * Management Commentary (MD&A)
+    * Auditor’s Reports
+* Comparing IFRS with Alternative Financial Reporting Systems
+* Developments in Financial Reporting Standards
+    * New Products & Transactions
+    * CFA Institute’s Role
+* Other Sources of Information
+* Practice Problems & Solutions
+
+Learning Module 2: Analyzing Income Statements
+* Introduction
+* Revenue Recognition
+    * General Principles & Standards
+* Expense Recognition
+    * Capitalization vs. Expensing
+    * Capitalization of Interest Costs
+    * Capitalization of Internal Development Costs
+* Practice Problems & Solutions
+
+Learning Module 3: Analyzing Balance Sheets
+* Introduction
+* Components of the Balance Sheet
+* Assets, Liabilities, and Equity Analysis
+    * Current vs. Non-Current Assets
+    * Intangible Assets & Goodwill
+    * Off-Balance Sheet Liabilities
+* Practice Problems & Solutions
+
+Learning Module 4: Analyzing Cash Flow Statements
+* Introduction
+* Components of the Cash Flow Statement
+    * Operating, Investing, and Financing Activities
+    * Direct vs. Indirect Cash Flow Methods
+* Evaluating Cash Flow Quality and Sustainability
+* Practice Problems & Solutions
+
+Learning Module 5: Financial Analysis of Inventories
+* Introduction
+* Inventory Accounting Methods
+    * FIFO vs. LIFO vs. Weighted Average Cost
+* Effects on Financial Statements
+    * Impact on Profitability, Liquidity, and Taxes
+* Inventory Valuation Adjustments
+* Practice Problems & Solutions
+
+Learning Module 6: Long-Term Assets and Depreciation
+* Introduction
+* Depreciation & Amortization Methods
+    * Straight-Line vs. Accelerated Methods
+* Impairment & Revaluation of Assets
+* Practice Problems & Solutions
+
+Learning Module 7: Financial Reporting for Liabilities and Equity
+* Introduction
+* Debt and Equity Accounting
+* Lease Accounting (IFRS & US GAAP)
+    * Finance vs. Operating Leases
+    * Presentation & Disclosure Requirements
+* Postemployment & Share-Based Compensation
+    * Pension Plans (Defined Benefit vs. Defined Contribution)
+    * Share-Based Compensation (Stock Options, Grants)
+* Practice Problems & Solutions
+
+Learning Module 8: Analysis of Income Taxes
+* Introduction
+* Accounting Profit vs. Taxable Income
+* Temporary & Permanent Differences
+* Deferred Tax Assets & Liabilities
+* Corporate Tax Rates & Presentation
+* Practice Problems & Solutions
+
+Learning Module 9: Financial Reporting Quality
+* Introduction
+* Conceptual Overview of Financial Reporting Quality
+* GAAP Compliance & Earnings Management
+* Accounting Bias & Conservatism
+* Mechanisms for Ensuring High-Quality Reporting
+    * Market Regulations
+    * Auditor Oversight
+    * Private Contracting
+* Detection of Financial Reporting Issues
+    * Revenue Recognition Red Flags
+    * Inventory & Capitalization Policies
+    * Cash Flow vs. Net Income Discrepancies
+* Practice Problems & Solutions
+
+Learning Module 10: Financial Analysis Techniques
+* Introduction
+* Financial Analysis Process & Objectives
+* Analytical Tools & Techniques
+    * Ratio Analysis
+    * Common-Size Statements
+    * Cross-Sectional & Trend Analysis
+    * Regression Analysis in Finance
+* Key Ratio Categories & Interpretation
+    * Activity Ratios (Turnover Ratios, Efficiency Metrics)
+    * Liquidity Ratios (Current Ratio, Quick Ratio)
+    * Solvency Ratios (Debt-to-Equity, Interest Coverage)
+    * Profitability Ratios (ROA, ROE, Gross Margin)
+    * DuPont Analysis & Advanced Ratio Decomposition
+* Industry-Specific Financial Ratios
+* Practice Problems & Solutions
+
+Learning Module 11: Introduction to Financial Statement Modeling
+* Introduction
+* Steps in Building a Financial Statement Model
+    * Revenue Forecasting
+    * Cost of Goods Sold (COGS) Forecasting
+    * SG&A & Operating Expenses Projections
+    * Non-Operating Items & Tax Forecasts
+* Pro Forma Financial Statements
+    * Income Statement
+    * Cash Flow Statement
+    * Balance Sheet
+* Valuation Model Inputs & Behavioral Finance Considerations
+    * Overconfidence Bias
+    * Illusion of Control
+    * Conservatism & Confirmation Bias
+* Inflation & Deflation Modeling in Forecasts
+* Case Study: Estimating Normalized Revenue
+* Practice Problems & Solutions
+
+
+
+Book 5: Equity Investments
+
+Learning Module 1: Market Organization and Structure
+* Introduction to Financial Markets
+    * Functions of the Financial System
+    * Determining Rates of Return
+    * Capital Allocation Efficiency
+* Asset Classifications and Markets
+    * Securities: Fixed Income & Equities
+    * Pooled Investments (Mutual Funds, ETFs)
+    * Currencies, Commodities, and Real Assets
+    * Contracts: Forwards, Futures, Swaps, Options
+* Financial Intermediaries & Market Participants
+    * Brokers, Exchanges, and Alternative Trading Systems
+    * Dealers & Arbitrageurs
+    * Securitizers, Depository Institutions, and Insurance Companies
+    * Custodial and Settlement Services
+* Market Trading & Execution
+    * Positions (Long vs. Short)
+    * Leveraged Positions & Margin Trading
+    * Order Types: Market, Limit, Stop Orders
+    * Primary vs. Secondary Markets
+* Market Regulation & Well-Functioning Financial Systems
+* Practice Problems & Solutions
+
+Learning Module 2: Security Market Indexes
+* Introduction to Indexes
+* Index Construction & Calculation
+    * Single-Period & Multi-Period Returns
+    * Weighting Methods (Price-Weighted, Market-Cap Weighted, Equal-Weighted)
+    * Rebalancing and Reconstitution
+* Uses of Market Indexes
+    * Market Sentiment Gauges
+    * Asset Allocation Proxies
+    * Benchmarks for Active Portfolio Management
+* Types of Indexes
+    * Equity Indexes: Broad Market, Multi-Market, Sector, Style Indexes
+    * Fixed-Income Indexes: Construction & Major Categories
+    * Alternative Investment Indexes: Commodities, Real Estate, Hedge Funds
+* Practice Problems & Solutions
+
+Learning Module 3: Market Efficiency
+* Introduction to Market Efficiency
+* Market Value vs. Intrinsic Value
+* Factors Affecting Market Efficiency
+    * Market Participants & Information Availability
+    * Trading Costs and Limits to Arbitrage
+* Forms of Market Efficiency
+    * Weak Form
+    * Semi-Strong Form
+    * Strong Form
+* Implications for Investment Strategies
+    * Fundamental & Technical Analysis
+    * Pricing Anomalies (Time-Series & Cross-Sectional)
+* Behavioral Finance & Market Efficiency
+    * Loss Aversion, Herding, Overconfidence
+    * Information Cascades & Other Biases
+* Practice Problems & Solutions
+
+Learning Module 4: Overview of Equity Securities
+* Equity Securities in Global Financial Markets
+* Types of Equity Securities
+    * Common Shares vs. Preference Shares
+    * Convertible & Hybrid Securities
+* Ownership Rights & Voting Structures
+* Practice Problems & Solutions
+
+Learning Module 5: Industry and Competitive Analysis
+* Introduction to Industry Analysis
+* Classifications of Industries
+    * Global Industry Classification Standards (GICS)
+    * Industry Life Cycle (Growth, Maturity, Decline)
+* Industry Profitability & Competitive Analysis
+    * Porter’s Five Forces Framework
+    * Market Share Trends & External Influences
+* Competitive Positioning within an Industry
+* Practice Problems & Solutions
+
+Learning Module 6: Company Analysis and Forecasting
+* Introduction to Forecasting Methods
+* Key Forecasting Objects
+    * Revenue Models
+    * Operating Expenses & Margins
+    * Working Capital & Cash Flow Projections
+    * Capital Investments & Capital Structure Forecasting
+* Scenario Analysis in Forecasting
+* Practice Problems & Solutions
+
+Learning Module 7: Equity Valuation – Concepts and Basic Tools
+* Introduction to Equity Valuation
+* Estimated Value vs. Market Price
+* Equity Valuation Models
+    * Dividend Discount Model (DDM)
+    * Free Cash Flow to Equity (FCFE) Model
+    * Preferred Stock Valuation
+    * Gordon Growth Model (Constant Growth DDM)
+    * Multi-Stage Dividend Discount Models
+* Multiples-Based Valuation
+    * Price-to-Earnings (P/E), Price-to-Book (P/B), Price-to-Sales (P/S)
+    * Method of Comparables & Adjustments
+* Practice Problems & Solutions
+
+
+
+Book 6: Fixed Income
+
+Learning Module 1: Fixed-Income Instrument Features
+* Introduction to Fixed-Income Securities
+* Key Features
+    * Issuer Types
+    * Maturity Structure
+    * Principal (Par or Face Value)
+    * Coupon Rate and Payment Frequency
+    * Seniority and Contingency Provisions
+* Yield Measures and Yield Curves
+* Bond Indentures and Covenants
+    * Bond Indentures Overview
+    * Sources of Bond Repayment
+    * Bond Covenants (Restrictive vs. Affirmative)
+* Practice Problems & Solutions
+
+Learning Module 2: Fixed-Income Cash Flows and Bond Types
+* Fixed-Income Cash Flow Structures
+    * Amortizing vs. Non-Amortizing Debt
+    * Variable Interest Debt Structures
+    * Zero-Coupon and Deferred Coupon Bonds
+* Fixed-Income Contingency Provisions
+    * Callable Bonds
+    * Putable Bonds
+    * Convertible Bonds
+* Legal, Regulatory, and Tax Considerations
+* Practice Problems & Solutions
+
+Learning Module 3: Fixed-Income Issuance and Trading
+* Overview of Fixed-Income Market Segments
+* Types of Issuers and Investors
+* Fixed-Income Indexes
+* Primary vs. Secondary Fixed-Income Markets
+* Practice Problems & Solutions
+
+Learning Module 4: Fixed-Income Markets for Corporate Issuers
+* Introduction to Corporate Debt Markets
+* Short-Term Corporate Financing Options
+    * External Loan Financing
+    * Security-Based Financing
+* Repurchase Agreements (Repos)
+    * Applications and Benefits
+    * Risks Associated with Repos
+* Long-Term Corporate Debt
+    * Investment-Grade vs. High-Yield Bonds
+* Practice Problems & Solutions
+
+Learning Module 5: Fixed-Income Markets for Government Issuers
+* Introduction to Government Fixed-Income Markets
+* Sovereign Debt Markets
+    * Issuance and Trading Mechanisms
+* Non-Sovereign & Quasi-Government Debt
+    * Municipal Bonds and Regional Debt
+    * Supranational Organizations
+* Practice Problems & Solutions
+
+Learning Module 6: Fixed-Income Bond Valuation
+* Introduction to Bond Pricing
+* Time Value of Money in Bond Valuation
+* Yield-to-Maturity (YTM) and Other Yield Measures
+* Bond Pricing with a Market Discount Rate
+* Flat Price vs. Full Price (Accrued Interest Considerations)
+* Bond Price Behavior
+    * Inverse Relationship Between Price & Yield
+    * Coupon and Maturity Effects
+    * Constant-Yield Price Trajectory
+    * Convexity in Bond Pricing
+* Matrix Pricing for Bond Valuation
+* Practice Problems & Solutions
+
+Learning Module 7: Yield and Yield Spread Measures for Fixed-Rate Bonds
+* Introduction to Yield Measurement
+* Annualized Yield Measures & Conventions
+* Accounting for Embedded Options
+* Yield Spread Measures
+    * Yield Spreads Over Benchmark Rates
+    * Yield Spreads Over the Yield Curve
+* Practice Problems & Solutions
+
+Learning Module 8: Yield and Spread Measures for Floating-Rate Instruments
+* Floating-Rate Notes (FRNs) Yield Measurement
+* Yield Measures for Money Market Instruments
+* Practice Problems & Solutions
+
+Learning Module 9: The Term Structure of Interest Rates
+* Spot, Par, and Forward Rate Curves
+* Bond Pricing Using Spot Rates
+* Deriving Forward Rates from Spot Rates
+* Interpretation of Yield Curves
+* Practice Problems & Solutions
+
+Learning Module 10: Interest Rate Risk and Return
+* Introduction to Interest Rate Risk
+* Sources of Return from Bond Investments
+* Investment Horizon Considerations
+* Practice Problems & Solutions
+
+Learning Module 11: Yield-Based Bond Duration Measures
+* Introduction to Duration Measures
+* Modified & Approximate Modified Duration
+* Money Duration & Price Value of a Basis Point (PVBP)
+* Duration of Zero-Coupon & Perpetual Bonds
+* Duration of Floating-Rate Bonds
+* Practice Problems & Solutions
+
+Learning Module 12: Bond Convexity and Portfolio Risk Measures
+* Introduction to Convexity and Convexity Adjustments
+* Bond Risk & Return Using Duration & Convexity
+* Portfolio-Level Duration & Convexity Analysis
+* Practice Problems & Solutions
+
+Learning Module 13: Curve-Based and Empirical Fixed-Income Risk Measures
+* Curve-Based Interest Rate Risk Measures
+* Key Rate Duration for Yield Curve Risk
+* Empirical Duration & Risk Sensitivity
+* Practice Problems & Solutions
+
+Learning Module 14: Credit Risk in Fixed Income
+* Introduction to Credit Risk
+* Sources & Measurement of Credit Risk
+* Role of Credit Rating Agencies
+* Factors Affecting Yield Spreads
+    * Macroeconomic Factors
+    * Market & Issuer-Specific Factors
+* Practice Problems & Solutions
+
+Learning Module 15: Credit Analysis for Government Issuers
+* Sovereign Credit Analysis
+    * Qualitative vs. Quantitative Factors
+* Non-Sovereign & Municipal Credit Risks
+* Practice Problems & Solutions
+
+Learning Module 16: Credit Analysis for Corporate Issuers
+* Assessing Corporate Creditworthiness
+* Financial Ratios in Corporate Credit Analysis
+* Seniority Rankings & Recovery Rates
+* Practice Problems & Solutions
+
+Learning Module 17: Fixed-Income Securitization
+* Introduction to Securitization
+* Benefits of Securitization for Issuers & Investors
+* Securitization Process & Key Players
+* Role of Special Purpose Entities (SPEs)
+* Practice Problems & Solutions
+
+Learning Module 18: Asset-Backed Securities (ABS)
+* Introduction to ABS Instruments
+* Credit Enhancement & Tranching
+* Non-Mortgage ABS
+    * Credit Card Receivable ABS
+    * Solar ABS
+    * Collateralized Debt Obligations (CDOs)
+* Practice Problems & Solutions
+
+Learning Module 19: Mortgage-Backed Securities (MBS)
+* Introduction to MBS Structures
+* Prepayment Risk & Time Tranching
+* Residential Mortgage-Backed Securities (RMBS)
+* Commercial Mortgage-Backed Securities (CMBS)
+    * CMBS Structure & Risks
+* Practice Problems & Solutions
+
+
+
+Book 7: Derivatives
+
+Learning Module 1: Derivative Instruments and Market Features
+* Introduction to Derivatives
+* Key Features of Derivative Contracts
+    * Definition and Characteristics
+    * Underlying Assets: Equities, Fixed Income, Currencies, Commodities, Credit, Others
+* Types of Derivative Markets
+    * Over-the-Counter (OTC) Derivatives
+    * Exchange-Traded Derivatives (ETD)
+    * Central Clearing Mechanisms
+* Investor Scenarios for Derivative Usage
+* Practice Problems & Solutions
+
+Learning Module 2: Forward Commitment and Contingent Claim Instruments
+* Introduction to Derivative Types
+* Forward Commitments
+    * Forwards
+    * Futures
+    * Swaps
+* Contingent Claims
+    * Options (Call & Put)
+    * Credit Derivatives
+* Comparison of Forward Commitments vs. Contingent Claims
+* Practice Problems & Solutions
+
+Learning Module 3: Derivatives - Benefits, Risks, and Uses
+* Benefits of Derivatives
+* Investor Use Cases
+* Issuer Use Cases
+* Risks of Derivative Contracts
+* Practice Problems & Solutions
+
+Learning Module 4: Arbitrage, Replication, and Cost of Carry in Derivatives Pricing
+* Introduction to Arbitrage and Replication
+* Cost & Benefits of Holding the Underlying Asset
+* Derivatives Pricing Using Arbitrage-Free Models
+* Practice Problems & Solutions
+
+Learning Module 5: Pricing and Valuation of Forward Contracts
+* Introduction to Forward Pricing
+* Forward Contract Valuation & Maturities
+* Interest Rate Forward Contracts
+* Practice Problems & Solutions
+
+Learning Module 6: Pricing and Valuation of Futures Contracts
+* Futures vs. Forward Contracts
+* Mark-to-Market Valuation of Futures
+* Futures Pricing at Inception
+* Effect of Central Clearing on Pricing
+* Practice Problems & Solutions
+
+Learning Module 7: Pricing and Valuation of Interest Rate & Other Swaps
+* Swaps vs. Forwards
+* Swap Valuation and Pricing
+* Practice Problems & Solutions
+
+Learning Module 8: Pricing and Valuation of Options
+* Option Pricing Fundamentals
+    * Option Value Relative to Spot Price
+    * Option Moneyness
+    * Option Time Value
+* Factors Affecting Option Valuation
+    * Underlying Asset Price, Exercise Price, Time, Risk-Free Rate, Volatility, and Dividends
+* Arbitrage and Replication in Option Pricing
+* Practice Problems & Solutions
+
+Learning Module 9: Option Replication Using Put-Call Parity
+* Understanding Put-Call Parity
+* Option Strategies Based on Put-Call Parity
+* Put-Call Forward Parity Applications
+* Practice Problems & Solutions
+
+Learning Module 10: Valuing a Derivative Using a One-Period Binomial Model
+* Introduction to Binomial Models
+* Risk-Neutral Pricing Approach
+* Binomial Valuation of a European Call Option
+* Practice Problems & Solutions
+
+
+Book 8: Alternative Investments
+
+Learning Module 1: Features, Methods, and Structures of Alternative Investments
+* Introduction to Alternative Investments
+* Key Characteristics of Alternative Investments
+    * Private Capital
+    * Real Assets
+    * Hedge Funds
+* Alternative Investment Methods
+    * Fund Investment
+    * Co-Investment
+    * Direct Investment
+* Alternative Investment Structures
+    * Ownership and Compensation Structures
+* Practice Problems & Solutions
+
+Learning Module 2: Alternative Investment Performance and Returns
+* Performance Measurement of Alternative Investments
+* Comparison with Traditional Asset Classes
+* Survivorship Bias in Performance Measurement
+* Alternative Investment Return Calculations
+* Practice Problems & Solutions
+
+Learning Module 3: Private Capital Investments (Equity & Debt)
+* Private Equity Investments
+    * Characteristics & Categories
+    * Exit Strategies (IPOs, M&A, Buyouts)
+* Private Debt Investments
+    * Characteristics & Categories
+    * Risk-Return Analysis
+* Diversification Benefits of Private Capital
+* Practice Problems & Solutions
+
+Learning Module 4: Real Estate and Infrastructure
+* Characteristics of Real Estate Investments
+* Investment Structures & Strategies
+* Source of Returns and Risk Considerations
+* Infrastructure Investments
+    * Characteristics & Structures
+    * Diversification Benefits
+* Practice Problems & Solutions
+
+Learning Module 5: Natural Resources and Commodities
+* Investing in Natural Resources
+    * Land vs. Real Estate
+    * Farmland & Timberland Investments
+    * Commodities
+* Pricing and Risk Factors in Natural Resource Investments
+* Inflation Hedging and Diversification Benefits
+* Practice Problems & Solutions
+
+Learning Module 6: Hedge Funds
+* Hedge Fund Strategies
+    * Equity Hedge Strategies
+    * Event-Driven Strategies
+    * Relative Value Strategies
+    * Opportunistic Strategies
+* Hedge Fund Investment Risks and Returns
+* Diversification Benefits of Hedge Fund Investments
+* Practice Problems & Solutions
+
+Learning Module 7: Introduction to Digital Assets
+* Blockchain and Distributed Ledger Technology
+* Proof of Work vs. Proof of Stake Mechanisms
+* Types of Digital Assets
+    * Cryptocurrencies
+    * Tokenized Securities
+    * Non-Fungible Tokens (NFTs)
+* Investment Characteristics of Digital Assets
+* Investment Risk & Return Considerations
+* Diversification Benefits of Digital Assets
+* Practice Problems & Solutions
+
+
+Book 9: Portfolio Management
+
+Learning Module 1: Portfolio Risk and Return - Part I
+* Introduction to Portfolio Risk and Return
+* Historical Risk and Return Analysis
+    * Nominal & Real Returns of Major Asset Classes (US & Global)
+    * Risk Characteristics of Asset Classes
+    * Risk-Return Trade-Off
+* Risk Aversion and Portfolio Selection
+    * Utility Theory and Indifference Curves
+    * Application of Utility Theory in Portfolio Selection
+* Portfolio Risk for Multiple Assets
+    * Portfolio of Two Risky Assets
+    * Portfolio of Many Risky Assets
+    * Diversification and the Power of Correlation
+* Efficient Frontier and Investment Opportunity Set
+    * Minimum Variance Portfolios
+    * Efficient Frontier with a Risk-Free Asset
+    * Capital Allocation Line (CAL) and Optimal Portfolio Selection
+* Practice Problems & Solutions
+
+Learning Module 2: Portfolio Risk and Return - Part II
+* Capital Market Theory
+    * The Capital Market Line (CML)
+    * Passive vs. Active Portfolio Management
+* Systematic vs. Unsystematic Risk
+* Return-Generating Models
+    * Market Model & Single-Index Model
+    * Beta Calculation and Interpretation
+* Capital Asset Pricing Model (CAPM)
+    * Security Market Line (SML)
+    * Assumptions, Applications, and Extensions
+* Portfolio Performance Appraisal Measures
+    * Sharpe Ratio, Treynor Ratio, Jensen’s Alpha
+    * Applications of CAPM in Portfolio Construction
+* Practice Problems & Solutions
+
+Learning Module 3: Portfolio Management Overview
+* Diversification and Risk Reduction
+* Modern Portfolio Theory (MPT)
+* Portfolio Management Process
+    * Planning Step
+    * Execution Step
+    * Feedback Step
+* Types of Investors
+    * Individual vs. Institutional Investors
+* Asset Management Industry Trends
+    * Active vs. Passive Management
+    * Mutual Funds, ETFs, Hedge Funds, Private Equity
+* Practice Problems & Solutions
+
+Learning Module 4: Portfolio Planning and Construction
+* Investment Policy Statement (IPS)
+    * Risk & Return Objectives
+    * Constraints: Liquidity, Time Horizon, Tax, Legal, ESG
+* Portfolio Construction Principles
+    * Capital Market Expectations
+    * Strategic Asset Allocation
+    * ESG Considerations
+* Practice Problems & Solutions
+
+Learning Module 5: Behavioral Biases in Portfolio Management
+* Behavioral Bias Categories
+    * Cognitive Errors (Belief Perseverance, Processing Errors)
+    * Emotional Biases (Loss Aversion, Overconfidence, Status Quo, Regret Aversion)
+* Impact of Behavioral Biases on Market Behavior
+    * Market Anomalies (Momentum, Bubbles, Crashes)
+* Practice Problems & Solutions
+
+Learning Module 6: Introduction to Risk Management
+* Risk Management Process & Framework
+* Risk Tolerance & Risk Budgeting
+* Types of Risk
+    * Financial Risks (Market, Credit, Liquidity)
+    * Non-Financial Risks (Operational, Legal, Political)
+* Risk Measurement & Modification
+    * Prevention, Avoidance, Hedging, Self-Insurance
+* Practice Problems & Solutions
+
+
+
+
+Book 10: Ethical and Professional Standards
+
+Learning Module 1: Ethics and Trust in Investment Management
+* Introduction to Ethics and Professionalism
+* Establishing Trust in the Investment Profession
+* Challenges to Ethical Conduct
+* Ethical vs. Legal Standards
+* Ethical Decision-Making Frameworks
+    * CFA Institute’s Framework for Ethical Decision-Making
+* Practice Problems & Solutions
+
+Learning Module 2: Code of Ethics and Standards of Professional Conduct
+* Evolution of the CFA Code of Ethics
+* CFA Institute’s Professional Conduct Program
+* Adoption of the Code and Standards
+* Understanding Ethical Responsibilities in Investment Management
+* Practice Problems & Solutions
+
+Learning Module 3: Standard I – Professionalism
+* Knowledge of the Law
+* Independence and Objectivity
+* Misrepresentation & Professional Misconduct
+* Real-World Applications of Ethical Standards
+* Practice Problems & Solutions
+
+Learning Module 4: Global Investment Performance Standards (GIPS)
+* Introduction to GIPS Compliance
+* Verification and Fundamentals of Compliance
+* Who Benefits from GIPS Compliance?
+* Practice Problems & Solutions
+
+Learning Module 5: Ethics Application in Investment Management
+* Ethical Principles in Professionalism
+* Duties to Clients and Market Integrity
+* Handling Material Nonpublic Information & Market Manipulation
+* Loyalty, Prudence, and Fair Dealing
+* Practice Problems & Solutions
+
+
+
+
+
+

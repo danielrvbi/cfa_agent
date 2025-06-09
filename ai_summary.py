@@ -16,6 +16,7 @@ import ollama  # ollama client for local LLM calls
 # -------------------------------------------------------------------------
 MODEL_NAME = "all-MiniLM-L6-v2"
 LLM_MODEL = "deepseek-r1:1.5b"
+#LLM_MODEL = "deepseek-r1:32b"
 TOP_K = 5
 SCORE_THRESHOLD1 = 0.7
 SCORE_THRESHOLD2 = 0.3
@@ -102,7 +103,7 @@ class LocalLLM:
             messages=messages,
             options={"temperature": self.temperature}
         )
-        return response["message"]["content"].strip()
+        return response["message"]["content"].strip().split("</think>")[-1].strip()
 
 # -------------------------------------------------------------------------
 # Summarization
@@ -113,6 +114,7 @@ def summarize_chapter(title: str, content: str, llm: LocalLLM) -> str:
     """
     prompt = (
         f"You are an expert summarizer. Please provide a complete markdown-formatted "
+        f"use $$ latex formatting to wrap any formular"
         f"summary of the chapter '{title}'. Use headings, bullet points, and ensure clarity.\n\n"
         f"Chapter Content:\n{content}"
     )
